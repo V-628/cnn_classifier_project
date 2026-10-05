@@ -1,7 +1,8 @@
 import numpy as np
 import torch
 from torchvision import transforms
-from train import load_model, DEVICE
+
+from packages.core.model import load_model, DEVICE
 
 _transform = transforms.Compose([
     transforms.ToPILImage(),
@@ -14,7 +15,7 @@ _transform = transforms.Compose([
 
 def predict(image_rgb: np.ndarray, model=None, classes=None):
     """
-    image_rgb: np.uint8 HxWx3 (как в interface.py).
+    image_rgb: np.uint8 HxWx3 (как в app/cli/interface.py).
     Возвращает (class_name, probabilities_dict).
     """
     if model is None:
