@@ -1,0 +1,19 @@
+flowchart LR
+    User[User]
+    CLI[app/cli/main.py]
+    UI[app/cli/interface.py]
+    Gen[packages/core/dataset.py]
+    Train[packages/core/training.py]
+    Model[packages/core/model.py]
+    Infer[packages/core/inference.py]
+    Disk[(dataset/ + model.pth)]
+
+    User --> UI
+    UI -- image_rgb --> CLI
+    CLI --> Gen
+    CLI --> Train
+    Gen --> Disk
+    Train --> Model
+    Model --> Disk
+    CLI --> Infer
+    Infer --> Model
