@@ -1,0 +1,7 @@
+numpy
+scikit-image
+imageio
+matplotlib
+torch
+torchvision
+pytest
